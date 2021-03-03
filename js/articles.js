@@ -6,7 +6,8 @@ for (var i = 0; i < allButtons.length; i++) {
 }
 
 /**
- * Permet d'afficher le nombre de stocks disponible
+ * Permet d'afficher le nombre de stocks disponible,
+ * si il n'y a plus de stocks, le cours disparait
  * @param {*} event L'évenement (qui permet d'avoir event.target (la cible de l'évenement))
  */
 function Stock(event){
