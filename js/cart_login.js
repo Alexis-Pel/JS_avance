@@ -6,12 +6,14 @@ const inpVille = document.querySelector('input[id="ville"]');
 const button = document.querySelector('button');
 button.style.display = "none";
 
+// Si tout est true, le bouton deviens visible
 let prenom = false;
 let nom = false;
 let mail = false;
 let ville0 = false;
 let adresse = false;
 
+//Images et message d'erreur
 const allImg = document.querySelectorAll('.icone-verif');
 const allSpan = document.querySelectorAll('span');
 const allLigne = document.querySelectorAll('.ligne div');
@@ -24,12 +26,11 @@ const alphabet = /[a-z]/i;
 const chiffres = /[0-9]/;
 const regexEmail = /\S+@\S+\.\S+/;
 
-let objValidation = {
-    symbole : 0,
-    lettre : 0,
-    chiffre : 0
-}
 
+/**
+ * Event Listener de l'entrée utilisateur : nom
+ * Affiche/cache l'image de confirmation et le message d'erreur
+ */
 inpUtilisateur.addEventListener('input',  function(e) {
     let username = inpUtilisateur.value;
     if(username.length < 3 || username.length > 24){
@@ -47,6 +48,10 @@ inpUtilisateur.addEventListener('input',  function(e) {
     }
 })
 
+/**
+ * Event Listener de l'entrée utilisateur : Prenom
+ * Affiche/cache l'image de confirmation et le message d'erreur
+ */
 inpPrenom.addEventListener('input',  function(e) {
     let username = inpPrenom.value;
     if(username.length < 3 || username.length > 24){
@@ -64,6 +69,10 @@ inpPrenom.addEventListener('input',  function(e) {
     }
 })
 
+/**
+ * Event Listener de l'entrée utilisateur : Mail
+ * Affiche/cache l'image de confirmation et le message d'erreur
+ */
 inpMail.addEventListener('input',  function(e) {
     let mail0 = inpMail.value;
     if(regexEmail.exec(mail0)){
@@ -82,7 +91,10 @@ inpMail.addEventListener('input',  function(e) {
 })
 
 
-
+/**
+ * Event Listener de l'entrée utilisateur : Adresse
+ * Affiche/cache l'image de confirmation et le message d'erreur
+ */
 inpAdresse.addEventListener('input',  function(e) {
     let mdp = inpAdresse.value;
     if (alphabet.exec(mdp) && chiffres.exec(mdp) && mdp.length >= 8){
@@ -100,6 +112,10 @@ inpAdresse.addEventListener('input',  function(e) {
     }
 })
 
+/**
+ * Event Listener de l'entrée utilisateur : ville
+ * Affiche/cache l'image de confirmation et le message d'erreur
+ */
 inpVille.addEventListener('input',  function(e) {
     let ville = inpVille.value;
     if(ville.length < 3 || ville.length > 24){
