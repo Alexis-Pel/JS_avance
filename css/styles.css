@@ -258,6 +258,9 @@ header .submenu:hover #cart::-webkit-scrollbar-thumb:hover {background: #555;}
   align-items: center;
 
   margin: 0 0 15px 0;
+  opacity: 1;
+    -webkit-transition: opacity 1000ms linear;
+    transition: opacity 1000ms linear;
 }
 
 #notification_container .content img {
@@ -270,6 +273,7 @@ header .submenu:hover #cart::-webkit-scrollbar-thumb:hover {background: #555;}
   font-weight: 600;
   font-size: 13px;
 }
+
 
 /*
 * Footer
