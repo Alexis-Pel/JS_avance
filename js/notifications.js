@@ -1,10 +1,8 @@
 let allButtons = document.querySelectorAll('a[class="add-to-cart"]');
-let notif_box = document.querySelector("element[id='notification_container']")
+let notif_box = document.querySelector("element[id='notification_container']");
 let compteur = 0;
+console.log(allButtons);
 
-for (var i = 0; i < allButtons.length; i++) {
-    allButtons[i].addEventListener('click', addNotification);
-}
 
 /**
  * Fonction qui créer des notifications,
