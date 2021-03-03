@@ -5,6 +5,10 @@ for (var i = 0; i < allButtons.length; i++) {
     allButtons[i].addEventListener('click', Stock);
 }
 
+/**
+ * Permet d'afficher le nombre de stocks disponible
+ * @param {*} event L'évenement (qui permet d'avoir event.target (la cible de l'évenement))
+ */
 function Stock(event){
     let parent = event.target.parentNode;
     for (let i = 0; i < allArticles.length; i++){
