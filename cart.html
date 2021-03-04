@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cours en ligne</title>
+    <link rel="stylesheet" href="css/cart_login.css">
+    <link rel="stylesheet" href="css/skeleton.css">
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+  <header id="header" class="header">
+    <div class="container">
+        <div class="row">
+          <div class="four columns logo">
+            <img src="img/coding_factory.jpg" id="logo">
+          </div>
+        </div>
+      </div>
+  </header>
+
+<div class="box-login">
+
+    <h2>Validation du panier</h2>
+
+    <form action="index.html">
+        <div class="form-groupe">
+            <label for="utilisateur">Nom</label>
+            <input type="text" id="utilisateur" placeholder="Nom" maxlength="24">
+            <img src="img/check.svg" alt="icone de validation" class="icone-verif">
+            <span class="message-alerte">Veuillez indiquer un Nom valide</span>
+        </div>
+        <div class="form-groupe">
+            <label for="utilisateur_prenom">Prénom</label>
+            <input type="text" id="utilisateur_prenom" placeholder="Prénom" maxlength="24">
+            <img src="img/check.svg" alt="icone de validation" class="icone-verif">
+            <span class="message-alerte">Veuillez indiquer un Prénom Valide</span>
+        </div>
+        <div class="form-groupe">
+            <label for="email">Entrez votre mail</label>
+            <input type="email" id="email" placeholder="Votre mail">
+            <img src="img/check.svg" alt="icone de validation" class="icone-verif">
+            <span class="message-alerte">Rentrez un email valide.</span>
+        </div>
+        <div class="form-groupe">
+            <label for="mdp">Adresse</label>
+            <input type="text" id="mdp" placeholder="Adresse">
+            <img src="img/check.svg" alt="icone de validation" class="icone-verif">
+            <span class="message-alerte">Veuillez indiquer une adresse valide</span>
+        </div>
+        <div class="form-groupe">
+            <label for="ville">Ville</label>
+            <input type="text" id="ville" placeholder="Ville">
+            <img src="img/check.svg" alt="icone de validation" class="icone-verif">
+            <span class="message-alerte">Veuillez indiquer une ville valide</span>
+        </div>
+
+        <button type="submit">Valider le panier</button>
+    </form>
+
+</div>
+
+
+  <footer>
+  </footer>
+  <script src="data/courses.js"></script>
+  <script src="js/cart_login.js"></script>
+</body>
+</html>
