@@ -86,6 +86,7 @@ function timerDiscount(){
   const p_doc = document.querySelectorAll('p.p_span2');
   const span_d = document.querySelectorAll('span.discount');
   const span_p = document.querySelectorAll('span.price');
+  
   for(let i = 0 ; i < p_doc.length ; i++ ){
     span_d[i].style.color = "transparent";
   }
@@ -94,7 +95,10 @@ function timerDiscount(){
   }
   
   let randomC = getRandomInt(p_doc.length);
-  console.log(randomC);
+  
+  
+  let price = COURSES[randomC+1].price
+  span_d[randomC].textContent = `${price/2} € `;
   span_d[randomC].style.color = "black";
   span_p[randomC].style.color = "red";
   span_p[randomC].style.textDecoration = "line-through";
@@ -125,6 +129,7 @@ function timerDiscount(){
     span_d[randomC].style.color = "transparent";
     span_p[randomC].style.color = "black";
     span_p[randomC].style.textDecoration = "none";
+    span_p[ramdomC].textContent = `${price} € `;
   }
  }
 }
