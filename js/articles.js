@@ -1,10 +1,13 @@
 let allArticles = document.querySelectorAll('div[class="course__item"]');
 let allBoutons = document.querySelectorAll('a[class="add-to-cart"]')
 
+//Ajoute un eventlistener sur chaques boutons
 for (let i = 0; i < allButtons.length; i++) {
     allButtons[i].addEventListener('click', Stock);
 }
 
+// Permet d'ajouter le stock dans le localStorage,
+//Le cours de n'ajoute pas si on rafraichis la page
 for (let i = 0; i < allBoutons.length; i++) {
     let parent = allButtons[i].parentNode;
     let stock = parent.parentNode.querySelector('span[class="stock"]');
