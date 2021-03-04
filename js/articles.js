@@ -8,11 +8,12 @@ for (let i = 0; i < allButtons.length; i++) {
 
 // Permet d'ajouter le stock dans le localStorage,
 //Le cours de n'ajoute pas si on rafraichis la page
+let j = 1;
 for (let i = 0; i < allBoutons.length; i++) {
     let parent = allButtons[i].parentNode;
     let stock = parent.parentNode.querySelector('span[class="stock"]');
     if (localStorage[allBoutons[i].dataset.id] != 0){
-        localStorage[allBoutons[i].dataset.id] = stock.innerHTML
+            localStorage[allBoutons[i].dataset.id] = COURSES[j].stock;
     }
     if(localStorage[allBoutons[i].dataset.id] != undefined){
         stock.innerHTML = localStorage[allBoutons[i].dataset.id];
@@ -21,6 +22,7 @@ for (let i = 0; i < allBoutons.length; i++) {
             parent.parentNode.remove();
         }
     }
+    j++
 }
 
 /**
@@ -34,7 +36,6 @@ function Stock(event){
     for (let i = 0; i < allArticles.length; i++){
         if(parent.parentNode == allArticles[i]){
             let stock = parent.parentNode.querySelector('span[class="stock"]');
-            localStorage[event.target.dataset.id] = stock.innerHTML;
             stock.innerHTML = stock.innerHTML - 1;
             localStorage[event.target.dataset.id] = stock.innerHTML;
             if (stock.innerHTML == 0){

@@ -4,7 +4,6 @@ const bodiv = document.querySelector('div.courses__container');
 let i = 1;
 for(const propriaty in COURSES){
   createCard(i);
-  console.log(COURSES[i].id);
   i++;
 }
 timerDiscount();
@@ -52,7 +51,7 @@ function createCard(i){
   let a = document.createElement('a');
   a.href = '#';
   a.className = 'add-to-cart';
-  a.id = `${COURSES_id}`;
+  a.dataset.id = `${COURSES_id}`;
   a.textContent = `Ajouter au panier`;
   
   //#appendChild des createElements ci-dessus#//
