@@ -229,8 +229,7 @@ header .submenu:hover #cart::-webkit-scrollbar-thumb:hover {
   font-weight: 700;
 }
 .course__item .price {
-  text-decoration: line-through;
-  color: red;
+  color: black;
 }
 .course__item .discount {
   color: black;
