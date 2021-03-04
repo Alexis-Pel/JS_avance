@@ -1,12 +1,11 @@
 const bodiv = document.querySelector('div.courses__container');
-
+let totalSeconds = 0.25 * 60;
 //boucle pour afficher les articles
 let i = 1;
 for(const propriaty in COURSES){
   createCard(i);
   i++;
 }
-timerDiscount();
 
 //fonction pour créer un article
 function createCard(i){
@@ -107,7 +106,7 @@ function timerDiscount(){
   newElement.textContent = `${m}h ${s}m ${ms}s`;
   p_doc[randomC].appendChild(newElement);
 
-  let totalSeconds = 0.25 * 60;
+  totalSeconds = 0.25 * 60;
   
   let interval = setInterval(Timer_Tick,1000);
   

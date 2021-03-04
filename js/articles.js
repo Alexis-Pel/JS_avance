@@ -12,9 +12,6 @@ let j = 1;
 for (let i = 0; i < allBoutons.length; i++) {
     let parent = allButtons[i].parentNode;
     let stock = parent.parentNode.querySelector('span[class="stock"]');
-    if (localStorage[allBoutons[i].dataset.id] != 0){
-            localStorage[allBoutons[i].dataset.id] = COURSES[j].stock;
-    }
     if(localStorage[allBoutons[i].dataset.id] != undefined){
         stock.innerHTML = localStorage[allBoutons[i].dataset.id];
         if(localStorage[allBoutons[i].dataset.id] == "0"){
