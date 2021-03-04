@@ -129,7 +129,7 @@ function timerDiscount(){
     span_d[randomC].style.color = "transparent";
     span_p[randomC].style.color = "black";
     span_p[randomC].style.textDecoration = "none";
-    span_p[ramdomC].textContent = `${price} € `;
+    span_d[randomC].textContent = `${price} € `;
   }
  }
 }
