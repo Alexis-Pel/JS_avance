@@ -1,7 +1,7 @@
 const addToCartBtn = document.querySelectorAll(".add-to-cart"); // Récupération de tous les boutons add des cours.
 let removeAllFromCart = document.querySelector('a[id="empty-cart"]');
 removeAllFromCart.addEventListener("click", removeAllCart);
-const tbody = document.querySelector("tbody.panier"); // Récuparation de l'emplacement ou afficher éléments du panier.
+const tbody = document.querySelector("tbody.panier"); // Récupération de l'emplacement ou afficher éléments du panier.
 let table = document.querySelector("table");
 let total1 = 0;
 let item_in_cart = 0;
@@ -31,7 +31,7 @@ if (localStorage["JSON_cart"]) {
 
 for (let i = 0; i < addToCartBtn.length; i++) {
   let button = addToCartBtn[i];
-  button.addEventListener("click", addToCartClick); // récuparation du clcik sur le "ajouter au panier + démarage de la focntion addToCartClick"
+  button.addEventListener("click", addToCartClick); // récupération du click sur le "ajouter au panier + démarage de la fonction addToCartClick"
 }
 /**
  * Fonction qui ajoute un article dans le panier en affichant le nom, le prix et la quantité
@@ -138,9 +138,9 @@ function addToCartClick(e) {
  * @param {*} event , permet de choisir l'article que l'on veut retirer
  */
 function delete_from_cart(event) {
-    if(event.target){
-        event = event.target;
-    }
+  if (event.target) {
+    event = event.target;
+  }
   let price_element = event.parentNode.parentNode.querySelector(
     'th[class="prix"]'
   );
@@ -166,16 +166,14 @@ function total(tt) {
       timerDiscount();
       lock = true;
     } else if (total1 < 100) {
-        let price_element = document.querySelectorAll(
-            'th[class="prix"]'
-          );
-          for (let p = 0; p < price_element.length; p++){
-            let price_element0 = price_element[p].innerHTML.slice(0, 3);
-            price_element0 = parseInt(price_element0);
-            if(price_element0 == 0){
-                delete_from_cart(price_element[p].parentNode.querySelector('a'))
-            }
-          }
+      let price_element = document.querySelectorAll('th[class="prix"]');
+      for (let p = 0; p < price_element.length; p++) {
+        let price_element0 = price_element[p].innerHTML.slice(0, 3);
+        price_element0 = parseInt(price_element0);
+        if (price_element0 == 0) {
+          delete_from_cart(price_element[p].parentNode.querySelector("a"));
+        }
+      }
       lock = false;
     }
     th5.className = "Total";
@@ -196,12 +194,10 @@ function add_localStorage(event) {
  * @param {*} event l'evenement, permet d'avoir event.target
  */
 function remove_localStorage(event) {
-    if (event.target){
-        event = event.target;
-    }
-  let nameToAdd = event.parentNode.parentNode.querySelector(
-    'th[class="nom"]'
-  );
+  if (event.target) {
+    event = event.target;
+  }
+  let nameToAdd = event.parentNode.parentNode.querySelector('th[class="nom"]');
   addToCartBtn.forEach(function(item) {
     if (item.parentNode.querySelector("h4").innerHTML == nameToAdd.innerHTML) {
       let stock = item.parentNode.querySelector('span[class="stock"]');
