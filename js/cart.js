@@ -206,6 +206,17 @@ function remove_localStorage(event){
 }
 
 function removeAllCart(){
+    let nameToAddAll= document.querySelectorAll('th[class="nom"]')
+    addToCartBtn.forEach(function(item){
+        for (let g = 0; g < nameToAddAll.length; g++){
+            if(item.parentNode.querySelector('h4').innerHTML == nameToAddAll[g].innerHTML){
+                let stock = item.parentNode.querySelector('span[class="stock"]');
+                let W = parseInt(stock.innerHTML)
+                stock.innerHTML = W + 1;
+                localStorage[item.dataset.id] = stock.innerHTML;
+            }   
+        }
+    });
     let allTr = tbody.querySelectorAll('tr')
     for (let i = 0; i < allTr.length; i++){
         allTr[i].remove();
