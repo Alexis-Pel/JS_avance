@@ -170,7 +170,12 @@ function total(tt) {
             'th[class="prix"]'
           );
           for (let p = 0; p < price_element.length; p++){
+<<<<<<< HEAD
             price_element0 = price_element[p].innerHTML.slice(0, 3);
+=======
+            console.log(price_element[p])
+            let price_element0 = price_element[p].innerHTML.slice(0, 3);
+>>>>>>> 1dfa9c0f8f27d9a280a4b5145fcd3d01d3374420
             price_element0 = parseInt(price_element0);
             if(price_element0 == 0){
                 delete_from_cart(price_element[p].parentNode.querySelector('a'))
