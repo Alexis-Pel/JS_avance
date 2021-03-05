@@ -34,7 +34,7 @@ function addNotification(event){
             let content_box = document.createElement('element');
             content_box.className = 'content';
             let message = document.createElement('p');
-            message.innerHTML="L'élément a été retiré au panier";
+            message.innerHTML="L'élément a été ajouté au panier";
             content_box.appendChild(message);
             notif_box.appendChild(content_box);
             compteur++;
@@ -47,4 +47,5 @@ function addNotification(event){
             }, 1200)
         }
     }
+
 }
