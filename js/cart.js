@@ -170,11 +170,10 @@ function total(tt) {
             'th[class="prix"]'
           );
           for (let p = 0; p < price_element.length; p++){
-            console.log(price_element[p])
             price_element0 = price_element[p].innerHTML.slice(0, 3);
             price_element0 = parseInt(price_element0);
             if(price_element0 == 0){
-                console.log(delete_from_cart(price_element[p].parentNode.querySelector('a')))
+                delete_from_cart(price_element[p].parentNode.querySelector('a'))
             }
           }
       lock = false;
@@ -215,7 +214,6 @@ function remove_localStorage(event) {
   localStorage.removeItem(event.parentNode.parentNode.dataset.id);
   let local = JSON.parse(localStorage["JSON_cart"]);
   for (var x = 0; x < local.length; x++) {
-    console.log(local.length);
     if (local.length == 1) {
       delete local;
       localStorage.removeItem("JSON_cart");
