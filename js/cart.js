@@ -130,5 +130,6 @@ function removeAllCart(){
     }
     total1 = 0;
     th5.textContent = total1 + " €";
+    localStorage.removeItem("JSON_cart")
 }
 
