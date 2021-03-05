@@ -5,7 +5,7 @@ const inpAdresse = document.querySelector('input[id="mdp"]');
 const inpVille = document.querySelector('input[id="ville"]');
 const button = document.querySelector('button');
 button.style.display = "none";
-
+button.addEventListener('click', () => {localStorage.removeItem("JSON_cart")})
 // Si tout est true, le bouton deviens visible
 let prenom = false;
 let nom = false;
