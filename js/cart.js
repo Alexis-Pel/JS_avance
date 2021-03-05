@@ -170,14 +170,10 @@ function total(tt) {
             'th[class="prix"]'
           );
           for (let p = 0; p < price_element.length; p++){
-            let price_element0 = price_element[p].innerHTML.slice(0, 3);
-            price_element0 = parseInt(price_element0);
-            if(price_element0 == 0){
-                delete_from_cart(price_element[p].parentNode.querySelector('a'));
             price_element0 = price_element[p].innerHTML.slice(0, 3);
             price_element0 = parseInt(price_element0);
             if(price_element0 == 0){
-                delete_from_cart(price_element[p].parentNode.querySelector('a'));
+                delete_from_cart(price_element[p].parentNode.querySelector('a'))
             }
           }
       lock = false;
@@ -262,5 +258,4 @@ function removeAllCart() {
   total1 = 0;
   th5.textContent = total1 + " €";
   localStorage.removeItem("JSON_cart");
-  }
 }
