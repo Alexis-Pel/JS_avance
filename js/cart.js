@@ -34,7 +34,7 @@ for (let i = 0; i < addToCartBtn.length; i++) {
   button.addEventListener("click", addToCartClick); // récuparation du clcik sur le "ajouter au panier + démarage de la focntion addToCartClick"
 }
 /**
- * Fonction qui ajoute un article dans le panier en affochant le nom, le prix et la quantité
+ * Fonction qui ajoute un article dans le panier en affichant le nom, le prix et la quantité
  * @param {*} e l'evenement permet de selectionner l'article choisi à ajouter
  */
 function addToCartClick(e) {
