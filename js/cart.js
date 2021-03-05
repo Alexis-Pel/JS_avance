@@ -170,7 +170,7 @@ function total(tt) {
             'th[class="prix"]'
           );
           for (let p = 0; p < price_element.length; p++){
-            price_element0 = price_element[p].innerHTML.slice(0, 3);
+            let price_element0 = price_element[p].innerHTML.slice(0, 3);
             price_element0 = parseInt(price_element0);
             if(price_element0 == 0){
                 delete_from_cart(price_element[p].parentNode.querySelector('a'))
