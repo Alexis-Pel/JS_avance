@@ -15,6 +15,7 @@ for (let i = 0; i < allBoutons.length; i++) {
     if(localStorage[allBoutons[i].dataset.id] != undefined){
         stock.innerHTML = localStorage[allBoutons[i].dataset.id];
         if(localStorage[allBoutons[i].dataset.id] == "0"){
+            allButtons[i].remove();
             allButtons[i].removeEventListener('click',Stock);
             parent.parentNode.remove();
         }
@@ -36,6 +37,7 @@ function Stock(event){
             stock.innerHTML = stock.innerHTML - 1;
             localStorage[event.target.dataset.id] = stock.innerHTML;
             if (stock.innerHTML == 0){
+                allButtons[i].style.display = 'none';
                     allButtons[i].removeEventListener('click',Stock);
                 setTimeout(function() {
                     parent.parentNode.style.opacity = '0';

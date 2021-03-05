@@ -32,7 +32,7 @@ function addToCartClick(e){ // création de la fonction avec event en parametre.
     if (typeof(e) == 'string'){
         console.log(e)
         tbody.outerHTML = e;
-        x = document.querySelectorAll('a[float="right"]'); ///###########
+        let x = document.querySelectorAll('a[float="right"]'); ///###########
         console.log(x)
         for (var i = 0; i < x.length; i++){
             x[i].addEventListener('click', delete_from_cart);
