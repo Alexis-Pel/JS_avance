@@ -95,7 +95,7 @@ function timerDiscount(){
   
   let randomC = getRandomInt(p_doc.length);
   
-  
+  //design la promotion
   let price = COURSES[randomC+1].price
   span_d[randomC].textContent = `${0} € `;
   span_d[randomC].style.color = "black";
@@ -107,9 +107,9 @@ function timerDiscount(){
   p_doc[randomC].appendChild(newElement);
 
   totalSeconds = 0.25 * 60;
-  
+  //function qui lance le minuteur
   let interval = setInterval(Timer_Tick,1000);
-  
+  //function pour créer le minuteur
   function Timer_Tick(){
 
   if (totalSeconds > 0) // S'il reste du temps ...
