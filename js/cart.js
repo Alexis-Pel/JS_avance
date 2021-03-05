@@ -31,7 +31,7 @@ else{
 }
 
 
-for (i=0; i<addToCartBtn.length; i++){
+for (let i=0; i<addToCartBtn.length; i++){
         let button = addToCartBtn[i];
         button.addEventListener('click', addToCartClick); // récuparation du clcik sur le "ajouter au panier + démarage de la focntion addToCartClick"
     }
@@ -182,7 +182,7 @@ function remove_localStorage(event){
             localStorage[item.dataset.id] = stock.innerHTML;
        }
     });
-    tab = [];
+    let tab = [];
     localStorage.removeItem(event.target.parentNode.parentNode.dataset.id);
     let local=  JSON.parse(localStorage["JSON_cart"]);
     for (var x = 0; x < local.length; x++){
