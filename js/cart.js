@@ -128,5 +128,7 @@ function removeAllCart(){
     for (let i = 0; i < allTr.length; i++){
         allTr[i].remove();
     }
+    total1 = 0;
+    th5.textContent = total1 + " €";
 }
 
