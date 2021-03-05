@@ -97,7 +97,7 @@ function timerDiscount(){
   
   
   let price = COURSES[randomC+1].price
-  span_d[randomC].textContent = `${0} € `;
+  span_d[randomC].textContent = `${price*(75/100)} € `;
   span_d[randomC].style.color = "black";
   span_p[randomC].style.color = "red";
   span_p[randomC].style.textDecoration = "line-through";
