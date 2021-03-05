@@ -86,7 +86,6 @@ function addToCartClick(e) {
       }
     }
   } else if (typeof e != "undefined") {
-    console.log(typeof e);
     let parent = e.target.parentElement.parentElement;
     let prix = parent.querySelector("span.discount");
     let nom = parent.querySelector("h4");
@@ -139,12 +138,15 @@ function addToCartClick(e) {
  * @param {*} event , permet de choisir l'article que l'on veut retirer
  */
 function delete_from_cart(event) {
-  let price_element = event.target.parentNode.parentNode.querySelector(
+    if(event.target){
+        event = event.target;
+    }
+  let price_element = event.parentNode.parentNode.querySelector(
     'th[class="prix"]'
   );
   price_element = price_element.innerHTML.slice(0, 3);
   price_element = parseInt(price_element);
-  event.target.parentNode.parentNode.remove();
+  event.parentNode.parentNode.remove();
   total(-price_element);
   remove_localStorage(event);
   addNotification(event);
@@ -164,6 +166,17 @@ function total(tt) {
       timerDiscount();
       lock = true;
     } else if (total1 < 100) {
+        let price_element = document.querySelectorAll(
+            'th[class="prix"]'
+          );
+          for (let p = 0; p < price_element.length; p++){
+            console.log(price_element[p])
+            price_element0 = price_element[p].innerHTML.slice(0, 3);
+            price_element0 = parseInt(price_element0);
+            if(price_element0 == 0){
+                console.log(delete_from_cart(price_element[p].parentNode.querySelector('a')))
+            }
+          }
       lock = false;
     }
     th5.className = "Total";
@@ -184,7 +197,10 @@ function add_localStorage(event) {
  * @param {*} event l'evenement, permet d'avoir event.target
  */
 function remove_localStorage(event) {
-  let nameToAdd = event.target.parentNode.parentNode.querySelector(
+    if (event.target){
+        event = event.target;
+    }
+  let nameToAdd = event.parentNode.parentNode.querySelector(
     'th[class="nom"]'
   );
   addToCartBtn.forEach(function(item) {
@@ -196,7 +212,7 @@ function remove_localStorage(event) {
     }
   });
   let tab = [];
-  localStorage.removeItem(event.target.parentNode.parentNode.dataset.id);
+  localStorage.removeItem(event.parentNode.parentNode.dataset.id);
   let local = JSON.parse(localStorage["JSON_cart"]);
   for (var x = 0; x < local.length; x++) {
     console.log(local.length);
@@ -204,7 +220,7 @@ function remove_localStorage(event) {
       delete local;
       localStorage.removeItem("JSON_cart");
     }
-    if (event.target.parentNode.parentNode.dataset.id == local[x].id) {
+    if (event.parentNode.parentNode.dataset.id == local[x].id) {
       local.splice(x, 1);
     }
     if (typeof local[x] != "undefined") {

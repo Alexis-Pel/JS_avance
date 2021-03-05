@@ -11,7 +11,10 @@ console.log(allButtons);
  * compteur qui permet de ne pas submerger la page de notifications
  */
 function addNotification(event){
-    if(event.target.className == "add-to-cart"){
+    if (event.target){
+        event = event.target;
+    }
+    if(event.className == "add-to-cart"){
         if(compteur < 3){
             let content_box = document.createElement('element');
             content_box.className = 'content';
