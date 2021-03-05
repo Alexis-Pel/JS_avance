@@ -29,4 +29,22 @@ function addNotification(event){
             }, 1200)
         }
     }
+    else{
+        if(compteur < 3){
+            let content_box = document.createElement('element');
+            content_box.className = 'content';
+            let message = document.createElement('p');
+            message.innerHTML="L'élément a été retiré au panier";
+            content_box.appendChild(message);
+            notif_box.appendChild(content_box);
+            compteur++;
+            setTimeout(function() {
+                content_box.style.opacity = '0';
+                setTimeout(function() {
+                    notif_box.removeChild(content_box);
+                    compteur--;
+                }, 1000)
+            }, 1200)
+        }
+    }
 }

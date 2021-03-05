@@ -1,8 +1,15 @@
 const addToCartBtn = document.querySelectorAll('.add-to-cart'); // Récupération de tous les boutons add des cours. 
+let removeAllFromCart = document.querySelector('a[id="empty-cart"]')
+removeAllFromCart.addEventListener('click', removeAllCart)
 const tbody = document.querySelector('tbody.panier'); // Récuparation de l'emplacement ou afficher éléments du panier. 
 let table = document.querySelector('table');
 let total1 = 0;
+let item_in_cart = 0;
 let lock = false;
+let JSON_cart = {};
+let tab_cart = [];
+let dataid = 10;
+
 
 let th = document.createElement('th');  
     let th2 = document.createElement('th');  
@@ -22,8 +29,16 @@ for (i=0; i<addToCartBtn.length; i++){
 }
 
 function addToCartClick(e){ // création de la fonction avec event en parametre. 
-
-    console.log(e.target.parentElement.parentElement);
+    if (typeof(e) == 'string'){
+        console.log(e)
+        tbody.outerHTML = e;
+        x = document.querySelectorAll('a[float="right"]'); ///###########
+        console.log(x)
+        for (var i = 0; i < x.length; i++){
+            x[i].addEventListener('click', delete_from_cart);
+        }
+    }
+    else if(typeof(e) != 'undefined'){
 
     let parent = e.target.parentElement.parentElement;
     let prix = parent.querySelector('span.discount');
@@ -52,7 +67,7 @@ function addToCartClick(e){ // création de la fonction avec event en parametre.
     button.style.fontSize = "10px";
     button.style.float="right";
     button.addEventListener('click', delete_from_cart);
-
+    tr.dataset.id = dataid;
     tbody.appendChild(tr);
     th2.appendChild(button);
     tr.appendChild(th);
@@ -60,15 +75,24 @@ function addToCartClick(e){ // création de la fonction avec event en parametre.
     tr.appendChild(thPrix);
     tr.appendChild(thDispo);
     tr.appendChild(th2);
+    item_in_cart++;
     total(prix.innerHTML)
+    dataid ++;
+    tab_cart.push({"nom": `${nom.innerHTML}`,
+                   "prix": `${prix.innerHTML}`})
+    }
+    JSON_cart.cart_items = tab_cart;
+    localStorage["JSON_cart"] = JSON.stringify(JSON_cart.cart_items);
 }
 
 function delete_from_cart(event){
-    let price_element = document.querySelector('th[class="prix"]')
+    let price_element = event.target.parentNode.parentNode.querySelector('th[class="prix"]')
     price_element = price_element.innerHTML.slice(0,3);
     price_element = parseInt(price_element);
-    console.log(event.target.parentNode.parentNode.remove())
-    total(-price_element)
+    event.target.parentNode.parentNode.remove();
+    total(-price_element);
+    remove_localStorage(event);
+    addNotification(event);
 }
 
 function total(tt){
@@ -91,5 +115,18 @@ function total(tt){
     }
 }
 
+function add_localStorage(event){
+    localStorage[event.dataset.id] = event.parentNode.outerHTML
+}
 
+function remove_localStorage(event){
+    localStorage.removeItem(event.target.parentNode.parentNode.dataset.id);
+}
+
+function removeAllCart(){
+    let allTr = tbody.querySelectorAll('tr')
+    for (let i = 0; i < allTr.length; i++){
+        allTr[i].remove();
+    }
+}
 
